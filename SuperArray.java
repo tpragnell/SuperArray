@@ -56,5 +56,18 @@ public class SuperArray{
     this.size = 0;
   }
 
+  public String toString(){
+    String s = "[";
+    String empty = "[]";
+    if(isEmpty())
+      return empty;
+    s += this.data[0];
+    for(int i=1; i<data.length; i++){
+      s = s + ", " + this.data[i];
+    }
+    s += "]";
+    return s;
+  }
+
 
 }

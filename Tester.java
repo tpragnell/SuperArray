@@ -31,9 +31,12 @@ public class Tester{
     }
     // Test clear and isEmpty
     words.clear();
+    System.out.println(words.toString());
     System.out.println(words.isEmpty()); // Should be true
     words.add("hi");
     System.out.println(words.isEmpty()); // Should be false
+    // Test toString
+    System.out.println(words.toString());
 
   }
 }
