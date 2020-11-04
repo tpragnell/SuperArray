@@ -26,7 +26,7 @@ public class SuperArray{
   }
 
   public String set(int _index, String _element){
-    if(_index > data.length)
+    if(_index >= data.length)
       return "";
     String s = this.data[_index];
     this.data[_index] = _element;
