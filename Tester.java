@@ -32,11 +32,13 @@ public class Tester{
     // Test clear and isEmpty
     words.clear();
     System.out.println(words.toString());
-    System.out.println(words.isEmpty()); // Should be true
+    System.out.println("Is it empty? "+words.isEmpty()); // Should be true
     words.add("hi");
-    System.out.println(words.isEmpty()); // Should be false
+    System.out.println("Is it empty? "+words.isEmpty()); // Should be false
     // Test toString
     System.out.println(words.toString());
+    // Test contains
+    System.out.println("Does it contain hi? "+words.contains("hi")); // Should be true
 
   }
 }
