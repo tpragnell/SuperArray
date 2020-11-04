@@ -41,4 +41,20 @@ public class SuperArray{
     this.data = newArray;
   }
 
+  public boolean isEmpty(){
+    if(data.length == 0)
+      return true;
+    return false;
+  }
+
+  public void clear(){
+    for(int i=0; i<data.length; i++){
+       this.data[i] = "";
+    }
+    String[] emptyArray = new String[0];
+    this.data = emptyArray;
+    this.size = 0;
+  }
+
+
 }

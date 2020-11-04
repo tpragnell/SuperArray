@@ -29,5 +29,11 @@ public class Tester{
     for(int i = 0; i < words.size(); i++){
       System.out.println( words.get(i) );
     }
+    // Test clear and isEmpty
+    words.clear();
+    System.out.println(words.isEmpty()); // Should be true
+    words.add("hi");
+    System.out.println(words.isEmpty()); // Should be false
+
   }
 }
