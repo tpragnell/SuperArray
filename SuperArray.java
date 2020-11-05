@@ -10,7 +10,7 @@ public class SuperArray{
   }
 
   public SuperArray(){
-    SuperArray(10);
+    this(10);
   }
 
   public int size(){
