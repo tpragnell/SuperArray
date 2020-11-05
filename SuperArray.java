@@ -1,44 +1,64 @@
 public class SuperArray{
   private String[] data;
   private int size;
+  private int capacity;
+
+  public SuperArray(int _initialCapacity){
+    capacity = _initialCapacity;
+    data = new String[capacity];
+    size = 0;
+  }
 
   public SuperArray(){
-    this.data = new String[10];
-    this.size = 0;
+    SuperArray(10);
   }
 
   public int size(){
-    return this.size;
+    return size;
   }
 
   public boolean add(String _element){
-    if(this.size == data.length)
+    if(size == data.length)
       resize();
-    this.data[this.size] = _element;
-    this.size++;
+    data[size] = _element;
+    size++;
     return true;
+  }
+
+  public void add(int _index, String _element){
+      if(_index >= size)
+        add(_element);
+      else{
+        if(size == data.length)
+          resize();
+        for(int i=size; i>_index; i--){
+          data[i] = data[i-1];
+        }
+        size++;
+        data[_index] = _element;
+      }
   }
 
   public String get(int _index){
     if(_index >= size)
       return "";
-    return this.data[_index];
+    return data[_index];
   }
 
   public String set(int _index, String _element){
     if(_index >= data.length)
       return "";
-    String s = this.data[_index];
-    this.data[_index] = _element;
+    String s = data[_index];
+    data[_index] = _element;
     return s;
   }
 
   private void resize(){
-    String[] newArray = new String[data.length+10];
+    String[] newArray = new String[data.length+capacity];
     for(int i=0; i<data.length; i++){
-      newArray[i] = this.data[i];
+      newArray[i] = data[i];
     }
-    this.data = newArray;
+    data = newArray;
   }
 
   public boolean isEmpty(){
@@ -46,17 +66,17 @@ public class SuperArray{
   }
 
   public void clear(){
-    this.data = new String[0];
-    this.size = 0;
+    data = new String[0];
+    size = 0;
   }
 
   public String toString(){
     String s = "[";
-    for(int i=0; i<data.length; i++){
+    for(int i=0; i<size; i++){
       if(i == 0)
-        s = s + this.data[0];
+        s = s + data[0];
       else
-        s = s + ", " + this.data[i];
+        s = s + ", " + data[i];
     }
     s += "]";
     return s;
@@ -64,7 +84,7 @@ public class SuperArray{
 
   public boolean contains(String _s){
     for(int i=0; i<data.length; i++){
-      if(this.data[i].equals(_s));
+      if(data[i].equals(_s));
         return true;
     }
     return false;

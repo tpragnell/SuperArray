@@ -39,6 +39,16 @@ public class Tester{
     System.out.println(words.toString());
     // Test contains
     System.out.println("Does it contain hi? "+words.contains("hi")); // Should be true
-
+    // Test add v2
+    words.add("kani");
+    words.add("uni");
+    words.add("ebi");
+    System.out.println(words.toString());
+    // Insertion should be in slot 2
+    words.add(2, "Insertion");
+    System.out.println(words.toString());
+    // Insertion should be in last slot due to _index > size
+    words.add(8, "Insertion");
+    System.out.println(words.toString());
   }
 }
