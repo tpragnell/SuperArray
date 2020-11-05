@@ -42,36 +42,29 @@ public class SuperArray{
   }
 
   public boolean isEmpty(){
-    if(data.length == 0)
-      return true;
-    return false;
+    return(data.length == 0);
   }
 
   public void clear(){
-    for(int i=0; i<data.length; i++){
-       this.data[i] = "";
-    }
-    String[] emptyArray = new String[0];
-    this.data = emptyArray;
+    this.data = new String[0];
     this.size = 0;
   }
 
   public String toString(){
     String s = "[";
-    String empty = "[]";
-    if(isEmpty())
-      return empty;
-    s += this.data[0];
-    for(int i=1; i<data.length; i++){
-      s = s + ", " + this.data[i];
+    for(int i=0; i<data.length; i++){
+      if(i == 0)
+        s = s + this.data[0];
+      else
+        s = s + ", " + this.data[i];
     }
     s += "]";
     return s;
   }
 
-  public boolean contains(String s){
+  public boolean contains(String _s){
     for(int i=0; i<data.length; i++){
-      if(this.data[i] == s)
+      if(this.data[i].equals(_s));
         return true;
     }
     return false;
