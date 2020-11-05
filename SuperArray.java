@@ -26,7 +26,7 @@ public class SuperArray{
   }
 
   public void add(int _index, String _element){
-      if(_index >= size)
+      if(_index >= size || _index < 0)
         add(_element);
       else{
         if(size == data.length)
@@ -40,7 +40,7 @@ public class SuperArray{
   }
 
   public String remove(int _index){
-      if(_index < size){
+      if(_index < size && _index >= 0){
         String s = data[_index];
         for(int i=_index; i<size; i++){
           data[i] = data[i+1];
@@ -52,13 +52,13 @@ public class SuperArray{
   }
 
   public String get(int _index){
-    if(_index >= size)
+    if(_index >= size || _index < 0)
       return "";
     return data[_index];
   }
 
   public String set(int _index, String _element){
-    if(_index >= data.length)
+    if(_index >= data.length || _index < 0)
       return "";
     String s = data[_index];
     data[_index] = _element;
