@@ -50,5 +50,10 @@ public class Tester{
     // Insertion should be in last slot due to _index > size
     words.add(8, "Insertion");
     System.out.println(words.toString());
+    // Test remove
+    System.out.println("Removed "+words.remove(2));
+    System.out.println(words.toString());
+    System.out.println("Removed "+words.remove(8));
+    System.out.println(words.toString());
   }
 }
