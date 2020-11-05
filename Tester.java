@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Tester{
 
   public static void main(String[] args){
@@ -58,5 +60,7 @@ public class Tester{
     // Test indexOf
     System.out.println(words.indexOf("kani"));
     System.out.println(words.indexOf("hello"));
+    // Test toArray (should just be copy)
+    System.out.println(Arrays.toString(words.toArray()));
   }
 }

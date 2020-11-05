@@ -90,7 +90,7 @@ public class SuperArray{
       else
         s = s + ", " + data[i];
     }
-    s += "]";
+    s = s + "]";
     return s;
   }
 
@@ -110,5 +110,12 @@ public class SuperArray{
     return -1;
   }
 
+  public String[] toArray(){
+    String[] copy = new String[size];
+    for(int i=0; i<size; i++){
+      copy[i] = data[i];
+    }
+    return copy;
+  }
 
 }
