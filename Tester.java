@@ -55,5 +55,8 @@ public class Tester{
     System.out.println(words.toString());
     System.out.println("Removed "+words.remove(8));
     System.out.println(words.toString());
+    // Test indexOf
+    System.out.println(words.indexOf("kani"));
+    System.out.println(words.indexOf("hello"));
   }
 }

@@ -95,11 +95,19 @@ public class SuperArray{
   }
 
   public boolean contains(String _s){
-    for(int i=0; i<data.length; i++){
+    for(int i=0; i<size; i++){
       if(data[i].equals(_s));
         return true;
     }
     return false;
+  }
+
+  public int indexOf(String _s){
+    for(int i=0; i<size; i++){
+      if(data[i].equals(_s))
+        return i;
+    }
+    return -1;
   }
 
 
