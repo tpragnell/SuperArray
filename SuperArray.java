@@ -40,7 +40,7 @@ public class SuperArray{
   }
 
   public String remove(int _index){
-      if(_index < size && _index >= 0){
+      if(_index <= size && _index >= 0){
         String s = data[_index];
         for(int i=_index; i<size; i++){
           data[i] = data[i+1];
@@ -74,7 +74,7 @@ public class SuperArray{
   }
 
   public boolean isEmpty(){
-    return(data.length == 0);
+    return(size == 0);
   }
 
   public void clear(){
