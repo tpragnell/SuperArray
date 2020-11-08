@@ -10,6 +10,7 @@ public class Demo{
       }
     }
   }
+
   public static SuperArray findOverlap(SuperArray _a, SuperArray _b){
     int s = _a.size();
     SuperArray overlap = new SuperArray();
@@ -19,6 +20,29 @@ public class Demo{
     }
     removeDuplicates(overlap);
     return overlap;
+  }
+
+  public static SuperArray zip(SuperArray _a, SuperArray _b){
+    SuperArray merge = new SuperArray();
+    if(_a.size() <= _b.size()){
+      for(int i=0; i<_a.size(); i++){
+        merge.add(_a.get(i));
+        merge.add(_b.get(i));
+      }
+      for(int k=_a.size(); k<_b.size(); k++){
+        merge.add(_b.get(k));
+      }
+    }
+    else {
+      for(int i=0; i<_b.size(); i++){
+        merge.add(_a.get(i));
+        merge.add(_b.get(i));
+      }
+      for(int k=_b.size(); k<_a.size(); k++){
+        merge.add(_a.get(k));
+      }
+    }
+    return merge;
   }
 
   public static void main(String[]args){
@@ -52,5 +76,10 @@ public class Demo{
     System.out.println(a.lastIndexOf("2"));
     System.out.println(a.equals(a));
     System.out.println(a.equals(b));
+
+    System.out.println(a.toString());
+    System.out.println(b.toString());
+    System.out.println(zip(a,b).toString());
+    System.out.println(zip(b,a).toString());
   }
 }
