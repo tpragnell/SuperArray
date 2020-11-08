@@ -48,5 +48,7 @@ public class Demo{
     b.add("9");
 
     System.out.println(findOverlap(a,b).toString());
+
+    System.out.println(a.lastIndexOf("2"));
   }
 }

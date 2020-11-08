@@ -122,4 +122,12 @@ public class SuperArray{
     return copy;
   }
 
+  public int lastIndexOf(String _value){
+    for(int i=size-1; i>=0; i--){
+        if(data[i].equals(_value))
+        return i;
+    }
+    return -1;
+  }
+
 }
