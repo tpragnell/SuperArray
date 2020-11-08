@@ -10,7 +10,10 @@ public class SuperArray{
   }
 
   public SuperArray(){
-    this(10);
+    //this(0);
+    this.data = new String[0];
+    this.size = 0;
+    capacity = 10;
   }
 
   public int size(){
@@ -39,16 +42,17 @@ public class SuperArray{
       }
   }
 
-  public String remove(int _index){
-      if(_index <= size && _index >= 0){
+  public String remove(int _index) {
+  // Let program throw exception instead of checking location
+  //    if(_index < size && _index >= 0){
         String s = data[_index];
         for(int i=_index; i<size; i++){
           data[i] = data[i+1];
         }
         size--;
         return s;
-      }
-      return "";
+//      }
+//      return("");
   }
 
   public String get(int _index){
@@ -96,7 +100,7 @@ public class SuperArray{
 
   public boolean contains(String _s){
     for(int i=0; i<size; i++){
-      if(data[i].equals(_s));
+      if(data[i].equals(_s))
         return true;
     }
     return false;

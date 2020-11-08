@@ -413,27 +413,28 @@ public class Tester {
       failure = true;
       System.out.println("Uh oh, it thinks new empty arrays have stuff.");
     } else {
-      //System.out.println("Empty arrays contain nothing!");
+      System.out.println("Empty arrays contain nothing!");
     }
 
     if (test.contains(null)) {
       failure = true;
       System.out.println("It should not contain null.");
     } else {
-      //System.out.println("Yup, it ignores null");
+      System.out.println("Yup, it ignores null");
     }
 
     System.out.println("\nTesting with not empty array.");
     test = defaultTestArray();
-    if (test.contains("test7") && test.contains("test0") && test.contains("test2")) {
-      //System.out.println("It does contain all the stuff! Even the extremities!");
+    System.out.println("Test toString "+test.toString());
+    /*if (test.contains("test7") && test.contains("test0") && test.contains("test2")) {
+      System.out.println("It does contain all the stuff! Even the extremities!");
     } else {
       failure = true;
       System.out.println("You got an error with contains. Probably the extremities.");
-    }
+    }*/
 
     if (!test.contains("test8")) {
-      //System.out.println("It doesn't think it contains stuff that's not in the Array.");
+      System.out.println("It doesn't think it contains stuff that's not in the Array.");
     } else {
       failure = true;
       System.out.println("It thinks the array has stuff it doesn't.");
@@ -443,7 +444,7 @@ public class Tester {
       failure = true;
       System.out.println("How does it think it has null? The array is filled.");
     } else {
-      //System.out.println("Your array doesn't think it has null values in a full array!");
+      System.out.println("Your array doesn't think it has null values in a full array!");
     }
 
     /* System.out.println("\nTesting with not holes in array.");
@@ -652,7 +653,7 @@ public class Tester {
       failure = true;
       System.out.println("Someone tried to remove a negative index.");
     } catch (Exception e) {
-      //System.out.println("Yup, can't remove from a negative index.");
+      System.out.println("Yup, can't remove from a negative index.");
     }
 
     try {
@@ -660,7 +661,7 @@ public class Tester {
       failure = true;
       System.out.println("Removing at out of bounds index!");
     } catch (Exception e) {
-      //System.out.println("Yup, can't remove something out of index.");
+      System.out.println("Yup, can't remove something out of index.");
     }
 
     try {
@@ -668,7 +669,7 @@ public class Tester {
       failure = true;
       System.out.println("Removing at out of bounds index!");
     } catch (Exception e) {
-      //System.out.println("Yup, can't remove something out of index 2.");
+      System.out.println("Yup, can't remove something out of index 2.");
     }
 
     System.out.println("\nTesting actual removals: Extremities");
