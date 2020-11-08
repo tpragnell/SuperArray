@@ -50,5 +50,7 @@ public class Demo{
     System.out.println(findOverlap(a,b).toString());
 
     System.out.println(a.lastIndexOf("2"));
+    System.out.println(a.equals(a));
+    System.out.println(a.equals(b));
   }
 }
