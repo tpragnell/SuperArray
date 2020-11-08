@@ -24,6 +24,17 @@ public class Demo{
 
   public static SuperArray zip(SuperArray _a, SuperArray _b){
     SuperArray merge = new SuperArray();
+    boolean shortA = (_a.size() < _b.size());
+    int shortS = (shortA)? _a.size() : _b.size();
+    int longS = (shortA)? _b.size() : _a.size();
+    for(int i=0; i<shortS; i++){
+      merge.add(_a.get(i));
+      merge.add(_b.get(i));
+    }
+    for(int i=shortS; i<longS-1; i++){
+      merge.add((shortA)? _b.get(i) : _a.get(i));
+    }
+    /*
     if(_a.size() <= _b.size()){
       for(int i=0; i<_a.size(); i++){
         merge.add(_a.get(i));
@@ -41,7 +52,7 @@ public class Demo{
       for(int k=_b.size(); k<_a.size(); k++){
         merge.add(_a.get(k));
       }
-    }
+    } */
     return merge;
   }
 
