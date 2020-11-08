@@ -92,5 +92,6 @@ public class Demo{
     System.out.println(b.toString());
     System.out.println(zip(a,b).toString());
     System.out.println(zip(b,a).toString());
+    System.out.println(zip(a,a).toString());
   }
 }
