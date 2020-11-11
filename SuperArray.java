@@ -17,7 +17,7 @@ public class SuperArray{
     //this(0);
     this.data = new String[0];
     this.size = 0;
-    capacity = 0;
+    capacity = 10;
   }
 
   public int size(){
