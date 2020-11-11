@@ -8,7 +8,7 @@ public class SuperArray{
       throw new IllegalArgumentException("InitialCapacity " + _initialCapacity
       + " cannot be negative");
         }
-    capacity = (_initialCapacity > 0)? _initialCapacity : 10;
+    capacity = _initialCapacity;
     data = new String[_initialCapacity];
     size = 0;
   }
@@ -17,7 +17,7 @@ public class SuperArray{
     //this(0);
     this.data = new String[0];
     this.size = 0;
-    capacity = 10;
+    capacity = 0;
   }
 
   public int size(){
