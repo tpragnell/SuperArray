@@ -89,6 +89,18 @@ public class Tester{
     } catch(IndexOutOfBoundsException e){
         System.out.println("IndexOutOfBoundsException thrown! " + e.getMessage());
     }
+    try{
+      words.set(-1, "Hello");
+        System.out.println("IndexOutOfBoundsException should've thrown!");
+    } catch(IndexOutOfBoundsException e){
+        System.out.println("IndexOutOfBoundsException thrown! " + e.getMessage());
+    }
+    try{
+      words.set(11, "Hello");
+        System.out.println("IndexOutOfBoundsException should've thrown!");
+    } catch(IndexOutOfBoundsException e){
+        System.out.println("IndexOutOfBoundsException thrown! " + e.getMessage());
+    }
   }
 
 }

@@ -57,13 +57,13 @@ public class SuperArray{
 
   public String get(int _index){
     if(_index >= size || _index < 0)
-      throw new IndexOutOfBoundsException("Index "+ _index + " is out of bounds!");
+      throw new IndexOutOfBoundsException("Index "+ _index + " is out of bounds in get!");
     return data[_index];
   }
 
   public String set(int _index, String _element){
     if(_index >= data.length || _index < 0)
-      return "";
+      throw new IndexOutOfBoundsException("Index "+ _index + " is out of bounds in set!");
     String s = data[_index];
     data[_index] = _element;
     return s;
