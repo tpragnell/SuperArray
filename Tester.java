@@ -73,33 +73,45 @@ public class Tester{
 
     try{
       SuperArray a = new SuperArray(-5);
-        System.out.println("IllegalArgumentException should've thrown!");
+      System.out.println("IllegalArgumentException should've thrown!");
     } catch(IllegalArgumentException e){
-        System.out.println("IllegalArgumentException thrown! " + e.getMessage());
+      System.out.println("IllegalArgumentException thrown! " + e.getMessage());
     }
     try{
       words.get(-10);
-        System.out.println("IndexOutOfBoundsException should've thrown!");
+      System.out.println("IndexOutOfBoundsException should've thrown!");
     } catch(IndexOutOfBoundsException e){
-        System.out.println("IndexOutOfBoundsException thrown! " + e.getMessage());
+      System.out.println("IndexOutOfBoundsException thrown! " + e.getMessage());
     }
     try{
       words.get(5);
-        System.out.println("IndexOutOfBoundsException should've thrown!");
+      System.out.println("IndexOutOfBoundsException should've thrown!");
     } catch(IndexOutOfBoundsException e){
-        System.out.println("IndexOutOfBoundsException thrown! " + e.getMessage());
+      System.out.println("IndexOutOfBoundsException thrown! " + e.getMessage());
     }
     try{
-      words.set(-1, "Hello");
-        System.out.println("IndexOutOfBoundsException should've thrown!");
+      words.set(-10, "Hello");
+      System.out.println("IndexOutOfBoundsException should've thrown!");
     } catch(IndexOutOfBoundsException e){
-        System.out.println("IndexOutOfBoundsException thrown! " + e.getMessage());
+      System.out.println("IndexOutOfBoundsException thrown! " + e.getMessage());
     }
     try{
       words.set(11, "Hello");
-        System.out.println("IndexOutOfBoundsException should've thrown!");
+      System.out.println("IndexOutOfBoundsException should've thrown!");
     } catch(IndexOutOfBoundsException e){
-        System.out.println("IndexOutOfBoundsException thrown! " + e.getMessage());
+      System.out.println("IndexOutOfBoundsException thrown! " + e.getMessage());
+    }
+    try{
+      words.add(-10, "Hello");
+      System.out.println("IndexOutOfBoundsException should've thrown!");
+    } catch(IndexOutOfBoundsException e){
+      System.out.println("IndexOutOfBoundsException thrown! " + e.getMessage());
+    }
+    try{
+      words.add(11, "Hello");
+      System.out.println("IndexOutOfBoundsException should've thrown!");
+    } catch(IndexOutOfBoundsException e){
+      System.out.println("IndexOutOfBoundsException thrown! " + e.getMessage());
     }
   }
 

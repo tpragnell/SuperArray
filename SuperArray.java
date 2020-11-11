@@ -34,7 +34,8 @@ public class SuperArray{
 
   public void add(int _index, String _element){
       if(_index >= size || _index < 0)
-        add(_element);
+        //add(_element);
+        throw new IndexOutOfBoundsException("Index " + _index + " is out of bounds in add");
       else{
         if(size == data.length)
           resize();
@@ -62,7 +63,7 @@ public class SuperArray{
   }
 
   public String set(int _index, String _element){
-    if(_index >= data.length || _index < 0)
+    if(_index >= size || _index < 0)
       throw new IndexOutOfBoundsException("Index "+ _index + " is out of bounds in set!");
     String s = data[_index];
     data[_index] = _element;
