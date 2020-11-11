@@ -83,6 +83,12 @@ public class Tester{
     } catch(IndexOutOfBoundsException e){
         System.out.println("IndexOutOfBoundsException thrown! " + e.getMessage());
     }
+    try{
+      words.get(5);
+        System.out.println("IndexOutOfBoundsException should've thrown!");
+    } catch(IndexOutOfBoundsException e){
+        System.out.println("IndexOutOfBoundsException thrown! " + e.getMessage());
+    }
   }
 
 }
