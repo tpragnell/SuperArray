@@ -66,7 +66,7 @@ public class Tester{
     System.out.println(Arrays.toString(words.toArray()));
     */
 
-    SuperArray words = new SuperArray();
+    SuperArray words = new SuperArray(10);
     words.add("kani");
     words.add("uni");
     words.add("ebi");
@@ -109,6 +109,18 @@ public class Tester{
     }
     try{
       words.add(11, "Hello");
+      System.out.println("IndexOutOfBoundsException should've thrown!");
+    } catch(IndexOutOfBoundsException e){
+      System.out.println("IndexOutOfBoundsException thrown! " + e.getMessage());
+    }
+    try{
+      words.remove(-10);
+      System.out.println("IndexOutOfBoundsException should've thrown!");
+    } catch(IndexOutOfBoundsException e){
+      System.out.println("IndexOutOfBoundsException thrown! " + e.getMessage());
+    }
+    try{
+      words.remove(11);
       System.out.println("IndexOutOfBoundsException should've thrown!");
     } catch(IndexOutOfBoundsException e){
       System.out.println("IndexOutOfBoundsException thrown! " + e.getMessage());

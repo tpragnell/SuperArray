@@ -48,12 +48,15 @@ public class SuperArray{
   }
 
   public String remove(int _index) {
-        String s = data[_index];
-        for(int i=_index; i<size; i++){
-          data[i] = data[i+1];
-        }
-        size--;
-        return s;
+    if(_index >= size || _index < 0){
+      throw new IndexOutOfBoundsException("Index " + _index + " is out of bounds in remove");
+    }
+    String s = data[_index];
+    for(int i=_index; i<size; i++){
+      data[i] = data[i+1];
+    }
+    size--;
+    return s;
   }
 
   public String get(int _index){
