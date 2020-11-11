@@ -66,6 +66,7 @@ public class Tester{
     System.out.println(Arrays.toString(words.toArray()));
     */
 
+    // Homework 17
     SuperArray words = new SuperArray(10);
     words.add("kani");
     words.add("uni");
