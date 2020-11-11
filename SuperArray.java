@@ -4,8 +4,12 @@ public class SuperArray{
   private int capacity;
 
   public SuperArray(int _initialCapacity){
-    capacity = _initialCapacity;
-    data = new String[capacity];
+    if (_initialCapacity < 0) {
+      throw new IllegalArgumentException("InitialCapacity " + _initialCapacity
+      + " cannot be negative");
+        }
+    capacity = (_initialCapacity > 0)? _initialCapacity : 10;
+    data = new String[_initialCapacity];
     size = 0;
   }
 
@@ -43,21 +47,17 @@ public class SuperArray{
   }
 
   public String remove(int _index) {
-  // Let program throw exception instead of checking location
-  //    if(_index < size && _index >= 0){
         String s = data[_index];
         for(int i=_index; i<size; i++){
           data[i] = data[i+1];
         }
         size--;
         return s;
-//      }
-//      return "";
   }
 
   public String get(int _index){
     if(_index >= size || _index < 0)
-      return "";
+      throw new IndexOutOfBoundsException("Index "+ _index + " is out of bounds!");
     return data[_index];
   }
 
@@ -139,5 +139,6 @@ public class SuperArray{
     }
     return true;
   }
-  
+
+
 }

@@ -3,6 +3,8 @@ import java.util.Arrays;
 public class Tester{
 
   public static void main(String[] args){
+
+    /* Homework 15
     SuperArray words = new SuperArray();
     words.add("kani");
     words.add("uni");
@@ -62,5 +64,25 @@ public class Tester{
     System.out.println(words.indexOf("hello"));
     // Test toArray (should just be copy)
     System.out.println(Arrays.toString(words.toArray()));
+    */
+
+    SuperArray words = new SuperArray();
+    words.add("kani");
+    words.add("uni");
+    words.add("ebi");
+
+    try{
+      SuperArray a = new SuperArray(-5);
+        System.out.println("IllegalArgumentException should've thrown!");
+    } catch(IllegalArgumentException e){
+        System.out.println("IllegalArgumentException thrown! " + e.getMessage());
+    }
+    try{
+      words.get(-10);
+        System.out.println("IndexOutOfBoundsException should've thrown!");
+    } catch(IndexOutOfBoundsException e){
+        System.out.println("IndexOutOfBoundsException thrown! " + e.getMessage());
+    }
   }
+
 }
