@@ -1,6 +1,6 @@
 import java.util.Arrays;
-
-public class ClassTester {
+//This is a fork of my original test case, which Phillip Von Mueffling edited down to within the parameter input constraints Mr. K provided.
+public class RengZhengTestCasesRevised {
 
   public static void main(String[] args) {
     System.out.println("SuperArray Tester");
@@ -19,12 +19,21 @@ public class ClassTester {
     failure = removeTester() || failure;
     failure = indexOfTester() ||failure;
     failure = toArrayTester() || failure;
+    //failure = removeDuplicatesTester() || failure;
+    failure = lastIndexOfTester() || failure;
+    failure = equalsTester() || failure;
+    failure = throwsConstructorTester() || failure;
+    failure = throwsGetTester() || failure;
+    failure = throwsSetTester() || failure;
+    failure = throwsAddTester() || failure;
+    failure = throwsRemoveTester() || failure;
+    failure = constructorInit0Tester() || failure;
 
     System.out.println("\n ~~~ Overall Result ~~~");
     if (failure) {
       System.out.println("Is that blue smoke?");
     } else {
-      System.out.println("All's good in the neighborhood");
+      System.out.println("All's good in the neighbourhood");
     }
   }
 
@@ -347,28 +356,27 @@ public class ClassTester {
       failure = true;
       System.out.println("Uh oh, it thinks new empty arrays have stuff.");
     } else {
-      System.out.println("Empty arrays contain nothing!");
+      //System.out.println("Empty arrays contain nothing!");
     }
 
     if (test.contains(null)) {
       failure = true;
       System.out.println("It should not contain null.");
     } else {
-      System.out.println("Yup, it ignores null");
+      //System.out.println("Yup, it ignores null");
     }
 
     System.out.println("\nTesting with not empty array.");
     test = defaultTestArray();
-    System.out.println("Test toString "+test.toString());
-    /*if (test.contains("test7") && test.contains("test0") && test.contains("test2")) {
-      System.out.println("It does contain all the stuff! Even the extremities!");
+    if (test.contains("test7") && test.contains("test0") && test.contains("test2")) {
+      //System.out.println("It does contain all the stuff! Even the extremities!");
     } else {
       failure = true;
       System.out.println("You got an error with contains. Probably the extremities.");
-    }*/
+    }
 
     if (!test.contains("test8")) {
-      System.out.println("It doesn't think it contains stuff that's not in the Array.");
+      //System.out.println("It doesn't think it contains stuff that's not in the Array.");
     } else {
       failure = true;
       System.out.println("It thinks the array has stuff it doesn't.");
@@ -378,7 +386,7 @@ public class ClassTester {
       failure = true;
       System.out.println("How does it think it has null? The array is filled.");
     } else {
-      System.out.println("Your array doesn't think it has null values in a full array!");
+      //System.out.println("Your array doesn't think it has null values in a full array!");
     }
 
     /* System.out.println("\nTesting with not holes in array.");
@@ -412,7 +420,7 @@ public class ClassTester {
       //System.out.println("Your array doesn't think it has null values even with holes in the static!");
     }
 
-*/
+    */
     methodMessage("contains()", failure);
     return failure;
   }
@@ -444,11 +452,11 @@ public class ClassTester {
       //test.add(-1, "0");
       //failure = true;
       //System.out.println("Someone added to a negative index.");
-  //  } catch (Exception e) {
+    //} catch (Exception e) {
       //System.out.println("Yup, can't add to a negative index.");
-  //  }
+    //}
 
-  /*  try {
+    /*try {
       test.add(0, "0");
       failure = true;
       System.out.println("Inserting at out of bounds index!");
@@ -571,8 +579,8 @@ public class ClassTester {
         System.out.println("You're adding out of index, kid. You shouldn't.");
       }
       expectedSize++;
-    }
-*/
+    }*/
+
     methodMessage("addAtIndex()", failure);
     return failure;
   }
@@ -581,13 +589,13 @@ public class ClassTester {
     System.out.println("\n ~~~ remove() TESTER");
     boolean failure = false;
     SuperArray test = new SuperArray();
-    System.out.println("Testing negative and out of bounds methods.");
+    /*System.out.println("Testing negative and out of bounds methods.");
     try {
       test.remove(-1);
       failure = true;
       System.out.println("Someone tried to remove a negative index.");
     } catch (Exception e) {
-      System.out.println("Yup, can't remove from a negative index.");
+      //System.out.println("Yup, can't remove from a negative index.");
     }
 
     try {
@@ -595,7 +603,7 @@ public class ClassTester {
       failure = true;
       System.out.println("Removing at out of bounds index!");
     } catch (Exception e) {
-      System.out.println("Yup, can't remove something out of index.");
+      //System.out.println("Yup, can't remove something out of index.");
     }
 
     try {
@@ -603,8 +611,8 @@ public class ClassTester {
       failure = true;
       System.out.println("Removing at out of bounds index!");
     } catch (Exception e) {
-      System.out.println("Yup, can't remove something out of index 2.");
-    }
+      //System.out.println("Yup, can't remove something out of index 2.");
+    }*/
 
     System.out.println("\nTesting actual removals: Extremities");
     test = defaultTestArray();
@@ -659,7 +667,7 @@ public class ClassTester {
     };
     expectedArrays = newExpecteds;
 
-  /*  for (int index = 0; index < indexToRemove.length; index++) {
+    /*for (int index = 0; index < indexToRemove.length; index++) {
       test.set(indexToRemove[index], null);
       try {
         //System.out.println(test.toString());
@@ -724,8 +732,8 @@ public class ClassTester {
         System.out.println("You're adding out of index, kid. You shouldn't.");
       }
       expectedSize--;
-    }
-*/
+    }*/
+
     methodMessage("remove()", failure);
     return failure;
   }
@@ -784,7 +792,7 @@ public class ClassTester {
     }
 
     System.out.println("\nTesting with mixed goods: holes in array");
-  System.out.println("Testing with holes set by set()");
+    System.out.println("Testing with holes set by set()");
     int[] expectedOutput = {
       -1,
       0,
@@ -795,7 +803,7 @@ public class ClassTester {
       4,
       -1
     };
-    /* test.set(0, null);
+    /*test.set(0, null);
     test.set(7, null);
     test.set(4, null);
     for (int index = 0; index < toFind.length; index++) {
@@ -805,8 +813,7 @@ public class ClassTester {
         failure = true;
         errorMessage(index, "" + expectedOutput[index], "" + test.indexOf(toFind[index]));
       }
-    }
-*/
+    }*/
     System.out.println("Testing with holes set by remove()");
     test = defaultTestArray();
     test.remove(7);
@@ -819,6 +826,17 @@ public class ClassTester {
         failure = true;
         errorMessage(index, "" + expectedOutput[index], "" + test.indexOf(toFind[index]));
       }
+    }
+
+    System.out.println("Now for the same elements");
+    SuperArray allSameTest = new SuperArray();
+    allSameTest.add("foo");
+    allSameTest.add("foo");
+    if (allSameTest.indexOf("foo") == 0) {
+      //passMessage(0);
+    } else {
+      failure = true;
+      errorMessage(0, "" + 1, "" + allSameTest.indexOf("foo"));
     }
 
     methodMessage("indexOf()", failure);
@@ -889,6 +907,651 @@ public class ClassTester {
 
     methodMessage("toArray()", failure);
     return failure;
+  }
+
+  /*public static boolean removeDuplicatesTester() {
+    System.out.println("\n ~~~ removedDuplicates() TESTER ~~~");
+    boolean failure = false;
+    SuperArray[] tests = {
+      new SuperArray(),//tests empty
+      defaultTestArray(),//tests nonoverlap
+      new SuperArray(),//tests all same
+      new SuperArray(),//tests just 1
+      defaultTestArray()//tests extremities simultaneously
+    };
+    int[] expectedSizes = {
+      0,
+      8,
+      1,
+      1,
+      7,
+    };
+    String[] expectedStringOutputs = {
+      "[]",
+      "[test0, test1, test2, test3, test4, test5, test6, test7]",
+      "[foo]",
+      "[foo]",
+      "[test0, test1, test2, test3, test4, test5, test6]"
+    };
+    for (int index = 0; index < 8; index++) {                         //sets a SuperArray to just "foo"
+      tests[2].add("foo");
+    }
+    tests[3].add("foo");
+    tests[4].set(7, "test0");
+
+    for (SuperArray test : tests) {
+      SuperArray.removeDuplicates(test);
+    }
+
+    for (int index = 0; index < tests.length; index++) {
+      boolean caseFailure = false;
+      if (tests[index].size() == expectedSizes[index]) {
+        //System.out.println("Size for test case " + index + " checks out.");
+      } else {
+        caseFailure = true;
+        errorMessage(index, "" + expectedSizes[index], "" + tests[index].size());
+      }
+
+      if (tests[index].toString().equals(expectedStringOutputs[index])) {
+        //System.out.println("String for test case " + index + " checks out.");
+      } else {
+        caseFailure = true;
+        errorMessage(index, "" + expectedStringOutputs[index], "" + tests[index].toString());
+      }
+
+      if (caseFailure) {
+        errorMessage(index, "Check above", "Check above");
+      } else {
+        //passMessage(index);
+      }
+
+      failure = caseFailure || failure;
+    }
+
+    methodMessage("removeDuplicates()", failure);
+    return failure;
+  }*/
+
+  public static boolean lastIndexOfTester() {
+    System.out.println("\n ~~~ lastIndexOf() TESTER ~~~");
+    boolean failure = false;
+    SuperArray test = new SuperArray();
+    String[] toFind = {
+      "test8",
+      "aardvark",
+      null,
+      ""
+    };
+
+    System.out.println("Testing known bads with empty Array.");
+    for (int index = 0; index < toFind.length; index++) {
+      if (test.lastIndexOf(toFind[index]) == -1) {
+        //passMessage(index);
+      } else {
+        failure = true;
+        errorMessage(index, "-1", "" + test.lastIndexOf(toFind[index]));
+      }
+    }
+
+    System.out.println("\nTesting known bads with occupied Array.");
+    test = defaultTestArray();
+    for (int index = 0; index < toFind.length; index++) {
+      if (test.lastIndexOf(toFind[index]) == -1) {
+        //passMessage(index);
+      } else {
+        failure = true;
+        errorMessage(index, "-1", "" + test.lastIndexOf(toFind[index]));
+      }
+    }
+
+    System.out.println("\nTesting with known goods: continuous array");
+    String[] toFind2 = {
+      "test0",
+      "test1",
+      "test2",
+      "test3",
+      "test4",
+      "test5",
+      "test6",
+      "test7"
+    };
+    toFind = toFind2;
+    for (int index = 0; index < toFind.length; index++) {
+      if (test.lastIndexOf(toFind[index]) == index) {
+        //passMessage(index);
+      } else {
+        failure = true;
+        errorMessage(index, "" + index, "" + test.lastIndexOf(toFind[index]));
+      }
+    }
+
+    System.out.println("\nTesting with mixed goods: holes in array");
+    int[] expectedOutput = {
+      -1,
+      0,
+      1,
+      2,
+      -1,
+      3,
+      4,
+      -1
+    };
+
+    System.out.println("Testing with holes set by remove()");
+    test = defaultTestArray();
+    test.remove(7);
+    test.remove(4);
+    test.remove(0);
+    for (int index = 0; index < toFind.length; index++) {
+      if (test.lastIndexOf(toFind[index]) == expectedOutput[index]) {
+        //passMessage(index);
+      } else {
+        failure = true;
+        errorMessage(index, "" + expectedOutput[index], "" + test.lastIndexOf(toFind[index]));
+      }
+    }
+
+    System.out.println("Now for the same elements");
+    SuperArray allSameTest = new SuperArray();
+    allSameTest.add("foo");
+    allSameTest.add("foo");
+    if (allSameTest.lastIndexOf("foo") == 1) {
+      //passMessage(0);
+    } else {
+      failure = true;
+      errorMessage(0, "" + 1, "" + allSameTest.lastIndexOf("foo"));
+    }
+
+    methodMessage("lastIndexOf()", failure);
+    return failure;
+  }
+
+  public static boolean equalsTester() {
+    System.out.println("\n ~~~ equals() TESTER ~~~");
+    boolean failure = false;
+    SuperArray a = new SuperArray();
+    SuperArray b = new SuperArray();
+    if (a.equals(b)) {
+      //passMessage(0);
+    } else {
+      errorMessage(0, "" + true, "" + a.equals(b));
+    }
+
+    b = defaultTestArray();
+    if (!a.equals(b)) {
+      //passMessage(1);
+    } else {
+      errorMessage(1, "" + true, "" + a.equals(b));
+    }
+
+    a = defaultTestArray();
+    b = new SuperArray();
+    if (!a.equals(b)) {
+      //passMessage(2);
+    } else {
+      errorMessage(2, "" + true, "" + a.equals(b));
+    }
+
+    b = defaultTestArray();
+    if (a.equals(b)) {
+      //passMessage(3);
+    } else {
+      errorMessage(3, "" + true, "" + a.equals(b));
+    }
+
+    b.set(7, "foo");
+    if (!a.equals(b)) {
+      //passMessage(4);
+    } else {
+      errorMessage(4, "" + true, "" + a.equals(b));
+    }
+
+    b.remove(7);
+    if (!a.equals(b)) {
+      //passMessage(5);
+    } else {
+      errorMessage(5, "" + true, "" + a.equals(b));
+    }
+
+    methodMessage("equals()", failure);
+    return failure;
+  }
+
+  public static boolean throwsConstructorTester() {
+    System.out.println("\n ~~~ throws Constructor TESTER ~~~");
+    boolean failure = false;
+    int[] sizes = {
+      -1,
+      0,
+      1,
+      7,
+      8
+    };
+    boolean[] expectedThrows = {
+      true,
+      false,
+      false,
+      false,
+      false
+    };
+
+    for (int i = 0; i < sizes.length; i++) {
+      try {
+        SuperArray test = new SuperArray(sizes[i]);
+        if (expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to throw something.", null);
+        } else {
+          //passMessage(i);
+        }
+      } catch (IllegalArgumentException e) {
+        if (!expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to not throw something.", e.toString());
+        } else {
+          //passMessage(i);
+        }
+      }
+    }
+
+    methodMessage("throw Constructor", failure);
+    return failure;
+  }
+
+  public static boolean throwsGetTester() {
+    System.out.println("\n ~~~ throws get() TESTER ~~~");
+    SuperArray test = new SuperArray(0);
+    boolean failure = false;
+    int[] indexes = {
+      -1,
+      0,
+      1,
+      7,
+      8
+    };
+    boolean[] expectedThrows = {
+      true,
+      true,
+      true,
+      true,
+      true
+    };
+
+    System.out.println("0 Length Test");
+    for (int i = 0; i < indexes.length; i++) {
+      try {
+        test.get(indexes[i]);
+        if (expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to throw something.", null);
+        } else {
+          //passMessage(i);
+        }
+      } catch (IndexOutOfBoundsException e) {
+        if (!expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to not throw something.", e.toString());
+        } else {
+          //passMessage(i);
+        }
+      }
+    }
+
+    System.out.println("\nUnoccupied Array Test");
+    test = new SuperArray();
+    for (int i = 0; i < indexes.length; i++) {
+      try {
+        test.get(indexes[i]);
+        if (expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to throw something.", null);
+        } else {
+          //passMessage(i);
+        }
+      } catch (IndexOutOfBoundsException e) {
+        if (!expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to not throw something.", e.toString());
+        } else {
+          //passMessage(i);
+        }
+      }
+    }
+
+    System.out.println("\nOccupied Array Test");
+    test = defaultTestArray();
+    expectedThrows = new boolean[] {
+      true,
+      false,
+      false,
+      false,
+      true
+    };
+    for (int i = 0; i < indexes.length; i++) {
+      try {
+        test.get(indexes[i]);
+        if (expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to throw something.", null);
+        } else {
+          //passMessage(i);
+        }
+      } catch (IndexOutOfBoundsException e) {
+        if (!expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to not throw something.", e.toString());
+        } else {
+          //passMessage(i);
+        }
+      }
+    }
+
+    methodMessage("throw get()", failure);
+    return failure;
+  }
+
+  public static boolean throwsSetTester() {
+    System.out.println("\n ~~~ throws set() TESTER ~~~");
+    SuperArray test = new SuperArray(0);
+    boolean failure = false;
+    int[] indexes = {
+      -1,
+      0,
+      1,
+      7,
+      8
+    };
+    boolean[] expectedThrows = {
+      true,
+      true,
+      true,
+      true,
+      true
+    };
+
+    System.out.println("0 Length Test");
+    for (int i = 0; i < indexes.length; i++) {
+      try {
+        test.set(indexes[i], "foo");
+        if (expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to throw something.", null);
+        } else {
+          //passMessage(i);
+        }
+      } catch (IndexOutOfBoundsException e) {
+        if (!expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to not throw something.", e.toString());
+        } else {
+          //passMessage(i);
+        }
+      }
+    }
+
+    System.out.println("\nUnoccupied Array Test");
+    test = new SuperArray();
+    for (int i = 0; i < indexes.length; i++) {
+      try {
+        test.set(indexes[i], "foo");
+        if (expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to throw something.", null);
+        } else {
+          //passMessage(i);
+        }
+      } catch (IndexOutOfBoundsException e) {
+        if (!expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to not throw something.", e.toString());
+        } else {
+          //passMessage(i);
+        }
+      }
+    }
+
+    System.out.println("\nOccupied Array Test");
+    test = defaultTestArray();
+    expectedThrows = new boolean[] {
+      true,
+      false,
+      false,
+      false,
+      true
+    };
+    for (int i = 0; i < indexes.length; i++) {
+      try {
+        test.set(indexes[i], "foo");
+        if (expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to throw something.", null);
+        } else {
+          //passMessage(i);
+        }
+      } catch (IndexOutOfBoundsException e) {
+        if (!expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to not throw something.", e.toString());
+        } else {
+          //passMessage(i);
+        }
+      }
+    }
+
+    methodMessage("throw set()", failure);
+    return failure;
+  }
+
+  public static boolean throwsAddTester() {
+    System.out.println("\n ~~~ throws add() TESTER ~~~");
+    SuperArray test = new SuperArray(0);
+    boolean failure = false;
+    int[] indexes = {
+      -1,
+      0,
+      1,
+      7,
+      8,
+      9
+    };
+    boolean[] expectedThrows = {
+      true,
+      false,
+      true,
+      true,
+      true,
+      true
+    };
+
+    System.out.println("0 Length Test");
+    for (int i = 0; i < indexes.length; i++) {
+      test = new SuperArray(0);
+      try {
+        test.add(indexes[i], "foo");
+        if (expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to throw something.", null);
+        } else {
+          //passMessage(i);
+        }
+      } catch (IndexOutOfBoundsException e) {
+        if (!expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to not throw something.", e.toString());
+        } else {
+          //passMessage(i);
+        }
+      }
+    }
+
+    System.out.println("\nUnoccupied Array Test");
+    test = new SuperArray();
+    for (int i = 0; i < indexes.length; i++) {
+      test = new SuperArray();
+      try {
+        test.add(indexes[i], "foo");
+        if (expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to throw something.", null);
+        } else {
+          //passMessage(i);
+        }
+      } catch (IndexOutOfBoundsException e) {
+        if (!expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to not throw something.", e.toString());
+        } else {
+          //passMessage(i);
+        }
+      }
+    }
+
+    System.out.println("\nOccupied Array Test");
+    test = defaultTestArray();
+    expectedThrows = new boolean[] {
+      true,
+      false,
+      false,
+      false,
+      false,
+      true
+    };
+    for (int i = 0; i < indexes.length; i++) {
+      test = defaultTestArray();
+      try {
+        test.add(indexes[i], "foo");
+        if (expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to throw something.", null);
+        } else {
+          //passMessage(i);
+        }
+      } catch (IndexOutOfBoundsException e) {
+        if (!expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to not throw something.", e.toString());
+        } else {
+          //passMessage(i);
+        }
+      }
+    }
+
+    methodMessage("throw add()", failure);
+    return failure;
+  }
+
+  public static boolean throwsRemoveTester() {
+    System.out.println("\n ~~~ throws remove() TESTER ~~~");
+    SuperArray test = new SuperArray(0);
+    boolean failure = false;
+    int[] indexes = {
+      -1,
+      0,
+      1,
+      7,
+      8
+    };
+    boolean[] expectedThrows = {
+      true,
+      true,
+      true,
+      true,
+      true
+    };
+
+    System.out.println("0 Length Test");
+    for (int i = 0; i < indexes.length; i++) {
+      test = new SuperArray(0);
+      try {
+        test.remove(indexes[i]);
+        if (expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to throw something.", null);
+        } else {
+          //passMessage(i);
+        }
+      } catch (IndexOutOfBoundsException e) {
+        if (!expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to not throw something.", e.toString());
+        } else {
+          //passMessage(i);
+        }
+      }
+    }
+
+    System.out.println("\nUnoccupied Array Test");
+    test = new SuperArray();
+    for (int i = 0; i < indexes.length; i++) {
+      test = new SuperArray();
+      try {
+        test.remove(indexes[i]);
+        if (expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to throw something.", null);
+        } else {
+          //passMessage(i);
+        }
+      } catch (IndexOutOfBoundsException e) {
+        if (!expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to not throw something.", e.toString());
+        } else {
+          //passMessage(i);
+        }
+      }
+    }
+
+    System.out.println("\nOccupied Array Test");
+    test = defaultTestArray();
+    expectedThrows = new boolean[] {
+      true,
+      false,
+      false,
+      false,
+      true
+    };
+    for (int i = 0; i < indexes.length; i++) {
+      test = defaultTestArray();
+      try {
+        test.remove(indexes[i]);
+        if (expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to throw something.", null);
+        } else {
+          //passMessage(i);
+        }
+      } catch (IndexOutOfBoundsException e) {
+        if (!expectedThrows[i]) {
+          failure = true;
+          errorMessage(i, "It to not throw something.", e.toString());
+        } else {
+          //passMessage(i);
+        }
+      }
+    }
+
+    methodMessage("throw set()", failure);
+    return failure;
+  }
+
+  public static boolean constructorInit0Tester() {
+    System.out.println("\n ~~~ constructorInit0 TESTER ~~~");
+    SuperArray test = new SuperArray(0);
+    String[] expectedArray = new String[500];
+
+    try {
+      for (int i = 0; i < 500; i++) {
+        test.add(""+i);
+        expectedArray[i] = ""+i;
+      }
+      methodMessage("constructorInit0", !Arrays.equals(expectedArray, test.toArray()));
+      return !Arrays.equals(expectedArray, test.toArray());
+    } catch (Exception e) {
+      System.out.println(e.toString());
+      methodMessage("constructorInit0", true);
+      return true;
+    }
   }
 
 }

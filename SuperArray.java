@@ -8,7 +8,7 @@ public class SuperArray{
       throw new IllegalArgumentException("InitialCapacity " + _initialCapacity
       + " cannot be negative");
         }
-    capacity = _initialCapacity;
+    capacity = _initialCapacity+1;
     data = new String[_initialCapacity];
     size = 0;
   }
@@ -33,10 +33,10 @@ public class SuperArray{
   }
 
   public void add(int _index, String _element){
-      if(_index >= size || _index < 0)
+      if(_index > size || _index < 0){
         //add(_element);
         throw new IndexOutOfBoundsException("Index " + _index + " is out of bounds in add");
-      else{
+      } else{
         if(size == data.length)
           resize();
         for(int i=size; i>_index; i--){
